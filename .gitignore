@@ -1,0 +1,5 @@
+# Material files
+*.pdf
+
+# Emacs files
+*\~
