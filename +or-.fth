@@ -9,31 +9,39 @@ here rseed !
   rseed dup dup @ 1103515245 * 12345 + 2147483648 mod swap ! @
   ;
 
-: input$ ( -- )
-  pad swap accept
-  pad swap ;
-
 : input# ( -- u true | false )
-  0. 16 input$ dup >R
+  0. pad pad 16 accept
   >number nip nip 
-  R> <> dup 0= IF nip THEN ;
+  0= dup invert IF nip THEN ;
+
+: number? ( f -- )
+  0= IF
+    cr ." That wasn't a number..."
+  THEN   
+
+: moreorless? ( n1 n2 -- n1 )
+  2dup > IF
+    cr ." It is more!"
+  ELSE
+    cr ." It is less!"
+  THEN
+  drop
+  ;
 
 : +or- ( u -- )
-  rand swap mod 1 +
-  begin
-  cr ." Enter a number: "
-  input# drop
-  2dup > if
-    cr ." It is more!"
-  then
-  2dup < if
-    cr ." It is less!"
-  then
-  2dup = if
-    cr ." Congratulation, you found the number!"
-    2drop
-    exit
-  then
-  drop
-  again
+  0 swap                     \ Tries counter
+  rand swap mod 1 +          \ Pick a number from 1 to u
+  BEGIN
+    swap 1 + swap            \ Increment counter
+    cr ." Enter a number: "
+    input# number?
+    2dup = IF
+      cr ." Congratulation, you found the number after " rot . ." tries!"
+      2drop
+      EXIT
+    ELSE
+      moreorless?
+    THEN
+  AGAIN
   ;
+  
