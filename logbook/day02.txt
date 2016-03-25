@@ -1,0 +1,12 @@
+A begin with a little lie: it's much more day 2, 3, and 4 than a single
+day... Also, there's not any page count this time, as I switched back from
+learning from a single book (Programming Forth) to flutter around several of
+them, as it fits better into my learning style.
+
+As a little exercice, I did a little + or - guessing game in Forth. It was a
+really good experience! Apart from the joys of mental exercice which go hand in
+hand with new concepts, I really liked the expressiveness. As there's no need to
+have explicit arguments, after some (re)factoring (thanks /r/forth!) everything
+feels clearer.
+
+Next steps; all the fun stuff: IMMEDIATE, POSTPONE, CREATE DOES>...

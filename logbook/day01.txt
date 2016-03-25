@@ -1,4 +1,4 @@
-P.01->24
+P.01->24 (EDIT: from `Programming Forth' book)
 
 First impressions: gorgeous promises. Extensible! Interactive! Simple concepts!
 
